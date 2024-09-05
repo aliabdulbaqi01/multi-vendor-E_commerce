@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthenticateAdminController extends Controller
 {
@@ -19,7 +20,25 @@ class AuthenticateAdminController extends Controller
      * authenticate admin login
      */
     public function store(LoginRequest $request) {
+        $request->authenticate();
+        if(auth()->user()->role === 'admin') {
+            $request->session()->regenerate();
+            return redirect()->intended('admin/dashboard');
+        }
+        Auth::guard('web')->logout();
+        session()->flash('status', 'You are not authorized to access this page.');
+        return redirect()->back();
 
+    }
+
+    public function destroy(Request $request) {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('admin/login');
     }
 
 
