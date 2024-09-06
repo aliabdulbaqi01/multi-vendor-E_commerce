@@ -468,6 +468,12 @@
                         </li>
                         <li><a href="track_order.html">track order</a></li>
                         <li><a href="daily_deals.html">daily deals</a></li>
+                        @auth()
+                            <li><a href="{{route('user.dashboard')}}" class="mt-3">dashboard</a></li>
+                        @else
+                            <li><a href="{{route('login')}}" class="mt-3">login</a></li>
+                        @endauth
+
                     </ul>
                 </div>
             </div>
