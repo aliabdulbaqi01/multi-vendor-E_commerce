@@ -15,10 +15,11 @@
 
             <div class="row mt-sm-4">
 
-                <div class="col-12">
+                <div class="col-12 col-lg-7">
                     <div class="card">
                         <form method="post" action="{{route('admin.profile.update')}}" class="needs-validation"
                         enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <div class="card-header">
                                 <h4>Update Profile</h4>
@@ -43,7 +44,48 @@
                                 </div>
                             </div>
                             <div class="card-footer text-right">
-                                <button class="btn btn-primary">Save Changes</button>
+                                <button class="btn btn-primary">Update Profile</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <div class="card">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                    <ul>
+                    @foreach($errors->all() as $error)
+                        <li >{{$error}}</li>
+                    @endforeach
+                    </ul>
+                    </div>
+                @endif
+                        <form method="post" action="{{route('admin.password.update')}}" class="needs-validation">
+                            @method('PUT')
+                            @csrf
+                            <div class="card-header">
+                                <h4>Change Password</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label>Current Password</label>
+                                        <input type="password" name="current_password" class="form-control">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>New Password</label>
+                                        <input type="password" name="password" class="form-control">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Confirm Password</label>
+                                        <input type="password" name="password_confirmation" class="form-control">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary">Change Password</button>
                             </div>
                         </form>
                     </div>

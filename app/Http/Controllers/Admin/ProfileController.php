@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\updatePasswordRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -40,5 +42,17 @@ class ProfileController extends Controller
        $user->update($request->only('name', 'email'));
        $user->save();
        return redirect()->back();
+    }
+
+    /*
+     * update Password
+     */
+
+    public function updatePassword(UpdatePasswordRequest $request) {
+        $request->user()->update([
+            'password' => Hash::make($request->get('password'))
+        ]);
+
+        return redirect()->back();
     }
 }
