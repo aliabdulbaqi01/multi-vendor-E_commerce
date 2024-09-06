@@ -3366,7 +3366,7 @@ exports.default = {
    */
   format: false,
   /**
-   * Horizontal mode layout.
+   * Horizontal mode layouts.
    *
    * If true, the hue and alpha channel bars will be rendered horizontally, above the saturation selector.
    *

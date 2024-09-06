@@ -3748,7 +3748,7 @@ var Editor = /** @class */ (function () {
             })(idx);
             this.context.memo('help.formatH' + idx, this.lang.help['formatH' + idx]);
         }
-        
+
         this.insertParagraph = this.wrapCommand(function () {
             _this.typing.insertParagraph(_this.editable);
         });
@@ -6818,7 +6818,7 @@ var Context = /** @class */ (function () {
         this.initialize();
     }
     /**
-     * create layout and initialize modules and other resources
+     * create layouts and initialize modules and other resources
      */
     Context.prototype.initialize = function () {
         this.layoutInfo = this.ui.createLayout(this.$note, this.options);
@@ -6827,7 +6827,7 @@ var Context = /** @class */ (function () {
         return this;
     };
     /**
-     * destroy modules and other resources and remove layout
+     * destroy modules and other resources and remove layouts
      */
     Context.prototype.destroy = function () {
         this._destroy();

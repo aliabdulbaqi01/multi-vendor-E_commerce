@@ -344,7 +344,7 @@ $.extend( Responsive.prototype, {
 		var usedWidth = widthAvailable - requiredWidth;
 
 		// Control column needs to always be included. This makes it sub-
-		// optimal in terms of using the available with, but to stop layout
+		// optimal in terms of using the available with, but to stop layouts
 		// thrashing or overflow. Also we need to account for the control column
 		// width first so we know how much width is available for the other
 		// columns, since the control column might not be the first one shown
@@ -748,7 +748,7 @@ $.extend( Responsive.prototype, {
 				break;
 			}
 		}
-		
+
 		// Show the columns for that break point
 		var columnsVis = this._columnsVisiblity( breakpoint );
 		this.s.current = columnsVis;
@@ -879,12 +879,12 @@ $.extend( Responsive.prototype, {
 		if ( this.c.details.type === 'inline' ) {
 			$(clonedTable).addClass( 'dtr-inline collapsed' );
 		}
-		
+
 		// It is unsafe to insert elements with the same name into the DOM
 		// multiple times. For example, cloning and inserting a checked radio
 		// clears the chcecked state of the original radio.
 		$( clonedTable ).find( '[name]' ).removeAttr( 'name' );
-		
+
 		var inserted = $('<div/>')
 			.css( {
 				width: 1,

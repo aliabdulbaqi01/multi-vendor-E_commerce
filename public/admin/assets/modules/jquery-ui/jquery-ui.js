@@ -8176,7 +8176,7 @@ $.fn.extend( {
 
 		// Run prefilter on all elements first to ensure that
 		// any showing or hiding happens before placeholder creation,
-		// which ensures that any layout changes are correctly captured.
+		// which ensures that any layouts changes are correctly captured.
 		return queue === false ?
 			this.each( prefilter ).each( run ) :
 			this.queue( queueName, prefilter ).queue( queueName, run );

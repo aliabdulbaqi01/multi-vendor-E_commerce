@@ -5812,7 +5812,7 @@ TextMarker.prototype.find = function (side, lineObj) {
   return from && {from: from, to: to}
 };
 
-// Signals that the marker's widget changed, and surrounding layout
+// Signals that the marker's widget changed, and surrounding layouts
 // should be recomputed.
 TextMarker.prototype.changed = function () {
     var this$1 = this;

@@ -120,7 +120,7 @@ return array(
     |
     | If you don't want PHPFlasher to automatically inject its scripts and stylesheets
     | into the response, you can set this option to 'false'. In this case, you will
-    | need to manually include the necessary files in your application's layout.
+    | need to manually include the necessary files in your application's layouts.
     */
     'auto_render' => true,
 
