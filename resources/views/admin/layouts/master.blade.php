@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{asset('admin/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css')}}">
 
+{{--    toaster CSS--}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/components.css')}}">
@@ -74,9 +77,19 @@
 <!-- Page Specific JS File -->
 <script src="{{asset('admin/assets/js/page/index.js')}}"></script>
 
+{{-- toaster Js--}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <!-- Template JS File -->
 <script src="{{asset('admin/assets/js/scripts.js')}}"></script>
 <script src="{{asset('admin/assets/js/custom.js')}}"></script>
+@if($errors->any())
+    @foreach($errors->all() as $error)
+        @php
+            toastr()->error($error)
+        @endphp
+    @endforeach
+@endif
 </body>
 </html>
 

@@ -35,12 +35,14 @@ class ProfileController extends Controller
             $user->update($request->only('name', 'email'));
             $user->image = $path;
             $user->save();
+            toastr()->success('Profile and image Updated  Successfully');
             return redirect()->back();
 
         }
 
        $user->update($request->only('name', 'email'));
        $user->save();
+       toastr()->success('Profile Updated Successfully');
        return redirect()->back();
     }
 
@@ -52,7 +54,7 @@ class ProfileController extends Controller
         $request->user()->update([
             'password' => Hash::make($request->get('password'))
         ]);
-
+        toastr()->success('Password Updated Successfully');
         return redirect()->back();
     }
 }
