@@ -77,12 +77,15 @@
 <!-- Page Specific JS File -->
 <script src="{{asset('admin/assets/js/page/index.js')}}"></script>
 
-{{-- toaster Js--}}
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!-- Template JS File -->
 <script src="{{asset('admin/assets/js/scripts.js')}}"></script>
 <script src="{{asset('admin/assets/js/custom.js')}}"></script>
+
+
+{{-- toaster Js--}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 @if($errors->any())
     @foreach($errors->all() as $error)
         @php
@@ -90,6 +93,7 @@
         @endphp
     @endforeach
 @endif
+
 </body>
 </html>
 

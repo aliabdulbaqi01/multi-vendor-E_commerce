@@ -22,7 +22,7 @@ class ProfileController extends Controller
     /*
      * update the profile date
      */
-    public function update(ProfileUpdateRequest $request) {
+    public function update(Request $request) {
         $user = Auth::user();
         if($request->hasFile('image')) {
             if(File::exists(public_path($user->image))) {

@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="{{asset('frontend')}}/css/style.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/responsive.css">
     <!-- <link rel="stylesheet" href="{{asset('frontend')}}/css/rtl.css"> -->
+    {{--    toastr CSS      --}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
@@ -42,7 +45,18 @@
 <!--=============================
   DASHBOARD START
 ==============================-->
-@yield('content')
+<section id="wsus__dashboard">
+    <div class="container-fluid">
+        {{--        sidebar start      --}}
+        @include('frontend.dashboard.layouts.sidebar')
+        {{--        sidebar end      --}}
+
+        {{--        content start      --}}
+        @yield('content')
+        {{--        content end      --}}
+
+    </div>
+</section>
 <!--=============================
   DASHBOARD START
 ==============================-->
@@ -96,6 +110,16 @@
 
 <!--main/custom js-->
 <script src="{{asset('frontend')}}/js/main.js"></script>
+
+{{--toastr JS--}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+@if($errors->any())
+    @foreach($errors->all() as $error)
+        toastr.error("{{$error}}")
+    @endforeach
+@endif
+</script>
 </body>
 
 </html>
