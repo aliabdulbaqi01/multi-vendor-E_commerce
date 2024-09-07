@@ -1,4 +1,4 @@
-@extends('frontend.dashboard.layouts.master')
+@extends('vendor.dashboard.layouts.master')
 @section('title')
     Vendor Dashboard
 @endsection
