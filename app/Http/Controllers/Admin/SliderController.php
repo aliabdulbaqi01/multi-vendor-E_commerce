@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SliderRequest;
+use App\Models\Slider;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+    use ImageUploadTrait;
     /**
      * Display a listing of the resource.
      */
@@ -20,15 +24,27 @@ class SliderController extends Controller
      */
     public function create()
     {
-        dd('add new slider ');
+        return view('admin.slider.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Slider in storage.
      */
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-        //
+       $banner = $this->uploadImage($request, 'banner', 'uploads/frontend_images');
+
+        Slider::created([
+            'banner' => $banner,
+            'type' => $request->type,
+            'title' => $request->title,
+            'starting_price' => $request->starting_price,
+            'btn_url' => $request->btn_url,
+            'serial' => $request->serial,
+            'status' => $request->status,
+        ]);
+        toastr()->success('Slider created successfully');
+        return redirect()->route('admin.sliders.index');
     }
 
     /**
